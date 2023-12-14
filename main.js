@@ -1,157 +1,94 @@
-import "./style.css"
+import "./style.css";
 
-// const colorChangeButton = document.querySelector(".hero-button")
+const button1 = document.getElementById("button1");
+const button2 = document.getElementById("button2");
+const button3 = document.getElementById("button3");
+const button4 = document.getElementById("button4");
+const button5 = document.getElementById("button5");
+const button6 = document.getElementById("button6");
+const button7 = document.getElementById("button7");
+const input = document.getElementById("input");
+const label = document.getElementById("label");
+const pageBackground = document.querySelector(".outer-container");
 
-// const heroSection = document.querySelector(".hero-section")
+const toasts = document.querySelectorAll(".toast");
 
-// colorChangeButton.addEventListener("click", () => {
-//   heroSection.style.backgroundColor = changeImage()
-// })
-
-// const randomColor = () => {
-//   let n = (Math.random() * 0xfffff * 1000000).toString(16)
-//   return "#" + n.slice(0, 6)
-// }
-
-// const contactForm = document.querySelector(".contact-form")
-
-// contactForm.addEventListener("submit", (event) => {
-//   const nameError = document.querySelector("#nameError")
-//   const emailError = document.querySelector("#emailError")
-//   const passwordError = document.querySelector("#passwordError")
-
-//   const nameInput = document.querySelector("#name")
-//   const emailInput = document.querySelector("#email")
-//   const passwordInput = document.querySelector("#password")
-
-//   let isValid = true
-
-//   const nameInputValue = nameInput.value.trim()
-
-//   if (!nameInputValue) {
-//     nameError.textContent = "Name is required"
-//     isValid = false
-//   } else {
-//     nameError.textContent = ""
-//   }
-
-//   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-
-//   if (!emailInput.value || !emailRegex.test(emailInput.value)) {
-//     emailError.textContent = "Invalid e-mail address"
-//     isValid = false
-//   } else {
-//     emailError.textContent = ""
-//   }
-
-//   if (!passwordInput.value || passwordInput.value.length < 8) {
-//     passwordError.textContent = "Password must be at least 8 characters long..."
-//     isValid = false
-//   } else {
-//     passwordError.textContent = ""
-//   }
-
-//   if (!isValid) {
-//     event.preventDefault()
-//   } else {
-//     event.preventDefault()
-
-//     nameInput.value = ""
-//     emailInput.value = ""
-//     passwordInput.value = ""
-//   }
-// })
-
-// const slideShowImage = document.querySelector("#slideshow")
-
-// const imageUrls = [
-//   "https://picsum.photos/id/2/600/400",
-//   "https://picsum.photos/id/6/600/400",
-//   "https://picsum.photos/id/8/600/400",
-// ]
-
-// let currentImageIndex = 0
-
-// const changeImage = () => {
-//   slideShowImage.src = imageUrls[currentImageIndex]
-
-//   currentImageIndex = (currentImageIndex + 1) % imageUrls.length
-// }
-
-// setInterval(changeImage, 3000)
-
-let currentPage = 1 // Initial page
-
-const fetchAndRenderCharacters = (page) => {
-  fetch(`https://rickandmortyapi.com/api/character/?page=${page}`)
-    .then((response) => response.json())
-    .then((data) => {
-      const characters = data.results
-
-      const characterContainer = document.getElementById("characterContainer")
-
-      const row = document.createElement("div")
-      row.classList.add("row", "justify-content-center")
-
-      characters.forEach((character) => {
-        const characterCard = createCharacterCard(character)
-        row.appendChild(characterCard)
-      })
-
-      characterContainer.appendChild(row)
-
-      currentPage = page
-
-      const loadMoreButton = document.getElementById("loadMoreButton")
-
-      if (currentPage < data.info.pages) {
-        loadMoreButton.style.display = "block"
-      } else {
-        loadMoreButton.style.display = "none"
-      }
+button1.addEventListener("click", () => {
+  toasts[0].style = "background:yellow;";
+});
+button2.addEventListener("click", () => {
+  toasts[1].textContent = "SUCCESS";
+});
+button3.addEventListener("click", () => {
+  toasts[2].style = "visibility:hidden;";
+});
+button4.addEventListener("click", () => {
+  if (
+    toasts[3].checkVisibility({
+      checkOpacity: true,
+      checkVisibilityCSS: true,
     })
-    .catch((error) => console.error("Error fetching data...", error))
-}
+  ) {
+    toasts[3].style = "visibility:hidden;";
+  } else {
+    toasts[3].style = "visibility:visible;";
+  }
+});
+const colors = ["red", "green", "yellow"];
+let colorIndex = 0;
+const changeColor = () => {
+  colorIndex = (colorIndex + 1) % colors.length;
+  return colors[colorIndex];
+};
+button5.addEventListener("click", () => {
+  toasts[4].style.backgroundColor = changeColor(colorIndex);
+});
 
-const createCharacterCard = (character) => {
-  const card = document.createElement("div")
-  card.classList.add("card", "m-2", "col-sm-6", "col-md-3", "col-lg-2")
+let counter = 0;
 
-  const image = document.createElement("img")
-  image.src = character.image
-  image.alt = character.name
-  image.classList.add("card-img-top", "img-fluid")
+button6.addEventListener("click", () => {
+  var timeout = null;
 
-  const cardBody = document.createElement("div")
-  cardBody.classList.add("card-body")
+  function doStuff() {
+    counter++;
+    toasts[5].textContent = counter;
+    timeout = setTimeout(doStuff, 3000);
+    if (counter >= 10) {
+      clearTimeout(timeout);
+      counter = 0;
+    }
+  }
+  doStuff();
+});
+button7.addEventListener("click", () => {
+  toasts.forEach((element) => {
+    element.style.backgroundColor = "#18D5E1";
+  });
+  pageBackground.style.backgroundColor = "#000000";
+});
+let timeout2 = null;
+let counter2 = 0;
+toasts[4].addEventListener("mouseenter", () => {
+  if (timeout2 != null) {
+    clearTimeout(timeout2);
+    timeout2 = null;
+    counter2 = 0;
+  }
+  function doStuff2() {
+    counter2++;
+    toasts[4].textContent = counter2;
+    timeout2 = setTimeout(doStuff2, 3000);
+    if (counter2 >= 10) {
+      clearTimeout(timeout2);
+      counter2 = 0;
+    }
+  }
+  doStuff2();
+});
+toasts[4].addEventListener("mouseout", () => {
+  toasts[4].textContent = 0;
+  clearTimeout(timeout2);
+  counter2 = 0;
+});
 
-  const name = document.createElement("h5")
-  name.classList.add("card-title")
-  name.textContent = character.name
-
-  const species = document.createElement("p")
-  species.classList.add("card-text")
-  species.textContent = character.species
-
-  const gender = document.createElement("p")
-  gender.classList.add("card-text")
-  gender.textContent = character.gender
-
-  card.appendChild(image)
-
-  cardBody.appendChild(name)
-  cardBody.appendChild(species)
-  cardBody.appendChild(gender)
-
-  card.appendChild(cardBody)
-
-  return card
-}
-
-fetchAndRenderCharacters(currentPage)
-
-const loadMoreButton = document.getElementById("loadMoreButton")
-
-loadMoreButton.addEventListener("click", () => {
-  fetchAndRenderCharacters(currentPage + 1)
-})
+input.addEventListener("keyup", () => (label.textContent = input.value));

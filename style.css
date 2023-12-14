@@ -31,7 +31,7 @@ main {
   align-items: center;
   width: 1205px;
   height: 1156px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 .inner-container {
   display: flex;
@@ -39,7 +39,7 @@ main {
   flex-direction: column;
   justify-content: space-between;
 
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 .row-of-buttons {
   height: 60px;
@@ -47,7 +47,7 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 button {
   border-radius: 8px;
@@ -62,13 +62,16 @@ button {
   font-weight: 400;
   line-height: 140%; /* 28px */
 }
+button:hover {
+  cursor: pointer;
+}
 .toasts-container {
   width: 1100px;
   height: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 .toast {
   display: flex;
@@ -131,4 +134,7 @@ button {
 }
 #button7 {
   background: #18d5e1;
+}
+#toast1:hover {
+  background-color: red;
 }
