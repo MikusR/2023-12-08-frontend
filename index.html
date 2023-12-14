@@ -3,56 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My first html page</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
+    <title>2023-12-08-frontend-homework</title>
   </head>
   <body>
-    <section id="hero-section" class="hero-section">
-      <div class="hero-content">
-        <h1>Welcome to our first HTML and CSS website</h1>
-        <p>Very cool html website made with vite</p>
-        <img
-          id="slideshow"
-          src="https://picsum.photos/id/10/600/400"
-          alt="Slideshow Image"
-        />
-        <button id="hero-button" class="hero-button">Click me</button>
-      </div>
-    </section>
-
     <main>
-      <!-- <section>
-        <h2>Contact Us</h2>
-        <form action="/" method="post" class="contact-form" novalidate>
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" />
-          <span id="nameError" class="error"></span>
-
-          <label for="email">E-mail:</label>
-          <input type="email" id="email" name="email" />
-          <span id="emailError" class="error"></span>
-
-          <label for="password">Password:</label>
-          <input type="password" id="password" autocomplete="off" />
-          <span id="passwordError" class="error"></span>
-
-          <button type="submit">Submit</button>
-        </form>
-      </section> -->
-
-      <div id="characterContainer" class="container"></div>
-
-      <button id="loadMoreButton" class="btn btn-primary">Load More</button>
+      <div class="outer-container">
+        <div class="inner-container">
+          <div class="row-of-buttons">
+            <button id="button1">Button 1</button>
+            <button id="button2">Button 2</button>
+            <button id="button3">Button 3</button>
+            <button id="button4">Button 4</button>
+            <button id="button5">Button 5</button>
+            <button id="button6">Button 6</button>
+          </div>
+          <div class="toasts-container">
+            <div class="toast"></div>
+            <div class="toast">FAIL</div>
+            <div class="toast"></div>
+          </div>
+          <div class="toasts-container">
+            <div class="toast"></div>
+            <div class="toast">0</div>
+            <div class="toast">0</div>
+          </div>
+          <div class="button-7-container"><button id="button7">Button 7</button></div>
+          <div class="input-container"><input placeholder="Input placeholder" id="input"></input></div>
+          <div class="label-container"><div id="label">Te parādās teksts</div></div>
+        </div>
+      </div>
     </main>
 
-    <footer>
-      <p>&copy; 2023 HTML Pro Website</p>
-    </footer>
+    <footer></footer>
 
     <script type="module" src="/main.js"></script>
   </body>
