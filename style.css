@@ -1,0 +1,129 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+
+  color-scheme: light;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.header {
+  background-color: #fffccc;
+  text-align: center;
+  padding: 3em;
+}
+
+.nav {
+  background-color: #cccfff;
+  display: flex;
+  justify-content: center;
+  padding: 0.5em;
+}
+
+.nav__list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+
+.nav__list--link {
+  font-weight: 500;
+  color: red;
+  text-decoration: none;
+}
+
+.nav__list--link:hover {
+  color: yellow;
+}
+
+.hero-section {
+  background-color: cadetblue;
+  color: #fff;
+  padding: 100px;
+  text-align: center;
+}
+
+.hero-section h1 {
+  font-size: 48px;
+}
+
+.hero-section button {
+  background-color: aqua;
+  border: 0;
+  padding: 20px 30px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.hero-section button:hover {
+  background-color: aquamarine;
+}
+
+main {
+  padding: 20px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+
+.contact-form button {
+  background-color: #555;
+  color: white;
+  padding: 10px;
+  border: 0;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #333;
+}
+
+.contact-form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.contact-form input,
+.contact-form select {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.image-gallery {
+  display: flex;
+  justify-content: space-between;
+}
+
+.unordered-list {
+  list-style-type: lower-greek;
+}
+
+dt {
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+  font-size: 0.8.em;
+  margin-top: 5px;
+  display: block;
+}
